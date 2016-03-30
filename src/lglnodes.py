@@ -25,8 +25,8 @@ def lglnodes(M):
   # Truncation + 1
   N = M+1
 
-  # Use the Chebyshev-Gauss-Lobatto nodes as the first guess
-  x = cos(pi*arange(N)/M)
+  # Use the sorted Chebyshev-Gauss-Lobatto nodes as the first guess
+  x = -cos(pi*arange(N)/M) 
 
   # Initializing the Legendre Vandermonde Matrix (And P_0)
   P = ones((N,N))
