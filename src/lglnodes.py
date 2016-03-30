@@ -17,7 +17,7 @@ def lglnodes(M):
   -
   - Written by Greg von Winckel - 04/17/2004
   - Contact: gregvw@chtm.unm.edu
-  - Translated to Python by Jason Yalim - 2016/03/29
+  - Translated to Python3 by Jason Yalim - 2016/03/29
   - Contact: jyalim@asu.edu
   -
   ======================================================================
@@ -38,7 +38,7 @@ def lglnodes(M):
     xold = x.copy()
     P[1] = x.copy()
     for k in range(2,N):
-      P[k] = ( (2*k-1)*x*P[k-1]-(k-1)*P[k-2] )/ (k)
+      P[k] = ( (2*k-1)*x*P[k-1]-(k-1)*P[k-2] ) / k
     x = xold - ( x*P[-1]-P[-2] ) / ( N*P[-1] )
 
   w = 2 / (M*N*P[-1]**2);
