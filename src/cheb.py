@@ -1,3 +1,5 @@
+from numpy import *
+
 def cheb(N):
   D,x = 0.,1.
   if N==0:
