@@ -214,5 +214,5 @@ def cheb_1st_roots(N):
   M = N+1
   pi= np.pi
   k = np.arange(1,M)
-  x = np.cos((2*k-1)/(2*M)*pi)
+  x = np.cos((2*k-1)/(2*N)*pi)
   return x
