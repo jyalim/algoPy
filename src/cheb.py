@@ -212,6 +212,7 @@ def cheb_2nd_roots(N):
 
   """
   M = N+1
-  k = arange(1,M)
+  pi=np.pi
+  k = np.arange(1,M)
   x = np.cos((2*k-1)/(2*M)*pi)
   return x
