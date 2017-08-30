@@ -185,3 +185,33 @@ def clenshaw_curtis_quad(L):
     w[k] += 1. + np.cos(k*pi) / (1.-L**2)
     w[k] *= 2. / L
   return w
+
+def cheb_2nd_roots(N):
+  """
+  ======================================================================
+  cheb_2nd_roots
+  ----------------------------------------------------------------------
+    Returns roots of the Chebyshev Polynomial of the Second Kind order N
+  ----------------------------------------------------------------------
+
+  Parameters
+  ----------
+  N : int
+    Order of the Second Chebyshev polynomial 
+    
+  Returns
+  -------
+  x : array_like, float, shape (N+1,)
+    Roots of Second Kind Chebyshev Polynomial of Order N
+
+  References
+  ----------
+
+  [1] 
+     
+
+  """
+  M = N+1
+  k = arange(1,M)
+  x = np.cos((2*k-1)/(2*M)*pi)
+  return x
