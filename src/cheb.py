@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# Author: Jason Yalim
+# email:  yalim@asu.edu
 import numpy as np
 
 def cheb(N):
@@ -37,7 +39,7 @@ def cheb(N):
   dx= x - x.T
   D = (c @ ( 1/c.T )) / (dx + np.eye(N+1))
   D-= np.diag(np.sum(D,1))
-  return D,x
+  return D,x.flatten()
 
 def cheb_card(xc,xp,TOL=1e-10):
   """
