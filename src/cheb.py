@@ -210,11 +210,31 @@ def cheb_1st_roots(N):
   ----------
 
   [1] 
-     
-
   """
   M = N+1
   pi= np.pi
   k = np.arange(1,M)
   x = np.cos((2*k-1)/(2*N)*pi)
   return x
+
+def compute_spectral_coefs(collocation_data):
+  M,N   = collocation_data.shape()
+  t     = np.zeros(3)
+  MN    = 4. / real(M*N)
+  cx,cz = np.ones((2,M+1))
+  cx[[0,-1]] = 0.5
+  cz[[0,-1]] = 0.5
+  spectral_coefs = np.zeros((2,M,N))
+  for nz in range(N):
+    for nx in range(M):
+      for k in range(N):
+        t[0] = cos(nz*pi*k/N)*cz[k]
+        for i in range(M):
+          t[1] = cos(nx*pi*i/M)*t[0]*cx[i]
+          spectral_coefs[i,k]+=collocation_data[i,k]*t[-1]
+      t[2] = MN * cx[nx] * cz[nz]
+      spectral_coefs[nx,nz] *= t[2]
+  return spectral_coefs 
+
+
+
