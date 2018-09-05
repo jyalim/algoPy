@@ -218,7 +218,7 @@ def cheb_1st_roots(N):
   return x
 
 def compute_spectral_coefs(collocation_data):
-  M,N   = collocation_data.shape()
+  M,N   = collocation_data.shape
   t     = np.zeros(3)
   MN    = 4. / real(M*N)
   cx,cz = np.ones((2,M+1))
